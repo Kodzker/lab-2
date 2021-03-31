@@ -13,7 +13,8 @@
 
 док.
 
-код.
+[lib](library.py)
+[start](main.py)
 
 ![](test_1.png)
 ![](test_2.png)
