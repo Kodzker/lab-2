@@ -99,7 +99,8 @@ def sort_students(array: list) -> list:
 
         # Sort by bubble method:
         for i in range(length):
-            if i + 1 < length and average_score(array[i]) > average_score(array[i + 1]):
+            if i + 1 < length and average_score(array[i]) >
+            average_score(array[i + 1]):
                 array[i], array[i + 1] = array[i + 1], array[i]
 
                 # I will say that the array is still sorted:
