@@ -18,6 +18,9 @@
 [library](library.py)
 [start file](main.py)
 
+БАЗА:
+[data_in.txt](data_in.txt)
+
 ТЕСТИ:
 ![test jpg](test_1.png)
 ![test jpg 2](test_2.png)
