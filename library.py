@@ -1,5 +1,8 @@
 # translation from google.
 
+# This code contains up to 80 characters per line.
+# This code does not exceed 10 lines per function.
+
 # This is a student template:
 class Student:
     first_name = ""  # Surname and initials.
