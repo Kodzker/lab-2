@@ -11,10 +11,11 @@
  2. Виведення на екран прізвищ і номерів груп для всіх студентів, включених в масив, які мають оцінки 4 і 5.
  3. Якщо таких студентів нема, то вивести відповідне повідомлення.
 
-док.
+док:
+[DOCUMENTATION](DOC)
 
-[lib](library.py)
-[start](main.py)
+[library](library.py)
+[start file](main.py)
 
-![](test_1.png)
-![](test_2.png)
+![test jpg](test_1.png)
+![test jpg 2](test_2.png)
