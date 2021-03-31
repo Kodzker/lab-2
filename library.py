@@ -74,16 +74,16 @@ def echo_students(array: list) -> None:
 
 # I display excellent students on the screen:
 def echo_best_students(array: list) -> list:
-    flag = True  # I will say that I have not found a better student. - translation from google.
+    flag = True  # I will say that I have not found a better student.
 
     for i in array:
         if 4 in i.list_number or 5 in i.list_number:
             echo_students([i])
 
-            flag = False  # I will say that I have found the best student. - translation from google.
+            flag = False  # I will say that I have found the best student.
 
     if flag:
-        print("there are no such students")  # - translation from google.
+        print("there are no such students")
 
 
 # I sort students by grade point average:
