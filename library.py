@@ -14,8 +14,8 @@ class Student:
 
         array = []
         for i in list_number:
-            if (int(i) > 5):
-                i=5
+            i = 5 if int(i) > 5 else i
+
             array.append(int(i))
         self.list_number = array
 
@@ -45,7 +45,7 @@ def get_data(link: str = "data_in.txt") -> list:
 
 
 # I learn the student's average score: GPA
-def average_score(student: Student) -> float:
+def GPA(student: Student) -> float:
 
     total = 0  # sum. Python already has a sum function!
     length = len(student.list_number)
@@ -69,7 +69,7 @@ def get_students() -> list:
 # I display an array of students:
 def echo_students(array: list) -> None:
     for i in array:
-        print(i.number_group, i.first_name, i.list_number, average_score(i))
+        print(i.number_group, i.first_name, i.list_number, GPA(i))
 
 
 # I display excellent students on the screen:
@@ -99,8 +99,7 @@ def sort_students(array: list) -> list:
 
         # Sort by bubble method:
         for i in range(length):
-            if i + 1 < length and average_score(array[i]) >
-                    average_score(array[i + 1]):
+            if i + 1 < length and GPA(array[i]) > GPA(array[i + 1]):
                 array[i], array[i + 1] = array[i + 1], array[i]
 
                 # I will say that the array is still sorted:
