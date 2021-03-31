@@ -86,14 +86,15 @@ def has_excellent_grades(student: Student) -> bool:
 
 # I display excellent students on the screen:
 def echo_best_students(array: list) -> None:
-    i_was_talking = False  # I will say that I have not found a better student.
+    i_was_talking = False  # I will say that I have not found a better
+    # student.
 
     for i in array:
         if has_excellent_grades(i):
             echo_students([i])
 
-            i_was_talking = True  # I will say that I have found the best
-            # student.
+            i_was_talking = True  # I will say that I have found the
+            # best student.
 
     if not i_was_talking:
         print("there are no such students")
