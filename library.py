@@ -5,24 +5,24 @@
 
 # This is a student template:
 class Student:
-    first_name = ""  # Surname and initials.
-
-    number_group = 0  # Student group number.
-
     list_number = []  # Student grades. an array of 4 ratings
     # (in the range 0 - 5).
+    first_name = ""  # Surname and initials.
+    number_group = 0  # Student group number.
+
 
     def __init__(self, number_group, first_name, list_number):
         self.number_group = int(number_group)
-
+        self.first_name = first_name
+        
         array = []
         for i in list_number:
-            i = 5 if int(i) > 5 else i
+            i = int(i)
+            i = 5 if i > 5 else i
+            i = 0 if i < 0 else i
+            array.append(i)
 
-            array.append(int(i))
         self.list_number = array
-
-        self.first_name = first_name
 
 
 # I read an array of students from the database:
@@ -37,7 +37,6 @@ def get_data(link: str = "data_in.txt") -> list:
 
     # I create an array of words from an array of elements:
     array = []
-
     for i in read_data:
         array.append(i.replace(',', ' ').split())
 
@@ -63,8 +62,8 @@ def GPA(student: Student) -> float:
 def get_students() -> list:
     array = []
 
-    for i in get_data():
-        array.append(Student(i[0], i[1], [i[2], i[3], i[4], i[5]]))
+    for l in get_data():
+        array.append(Student(l[0], l[1], [l[2], l[3], l[4], l[5]]))
 
     return array
 
@@ -75,12 +74,22 @@ def echo_students(array: list) -> None:
         print(i.number_group, i.first_name, i.list_number, GPA(i))
 
 
+# Is this student an excellent student?
+def has_excellent_grades(student: Student) -> bool:
+    excellent_grades = 4,5
+    
+    for number in excellent_grades:
+        if number in student.list_number:
+            return True
+    return False
+
+
 # I display excellent students on the screen:
-def echo_best_students(array: list) -> list:
+def echo_best_students(array: list) -> None:
     flag = True  # I will say that I have not found a better student.
 
     for i in array:
-        if 4 in i.list_number or 5 in i.list_number:
+        if has_excellent_grades(i):
             echo_students([i])
 
             flag = False  # I will say that I have found the best student.
@@ -101,9 +110,9 @@ def sort_students(array: list) -> list:
         length = len(array)
 
         # Sort by bubble method:
-        for i in range(length):
-            if i + 1 < length and GPA(array[i]) > GPA(array[i + 1]):
-                array[i], array[i + 1] = array[i + 1], array[i]
+        for j in range(length):
+            if j + 1 < length and GPA(array[j]) > GPA(array[j + 1]):
+                array[j], array[j + 1] = array[j + 1], array[j]
 
                 # I will say that the array is still sorted:
                 flag = True
