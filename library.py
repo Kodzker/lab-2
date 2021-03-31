@@ -1,6 +1,6 @@
 # translation from google.
 
-# This code contains up to 80 characters per line.
+# This code contains up to 72 characters per line.
 # This code does not exceed 10 lines per function.
 
 # This is a student template:
@@ -30,20 +30,20 @@ def get_data(link: str = "data_in.txt") -> list:
 
     # I get an array of elements from the database:
     with open(link) as f:
-        read_data = f.read().replace(' ', ',').replace('\n', ' ').split()
-
-    # debug:
-    #print(read_data)
-
-    # I create an array of words from an array of elements:
-    array = []
-    for i in read_data:
-        array.append(i.replace(',', ' ').split())
+        array = f.read().replace(' ', ',').replace('\n', ' ').split()
 
     # debug:
     #print(array)
 
-    return array
+    # I create an array of words from an array of elements:
+    students = []
+    for i in array:
+        students.append(i.replace(',', ' ').split())
+
+    # debug:
+    #print(students)
+
+    return students
 
 
 # I learn the student's average score: GPA
@@ -92,7 +92,8 @@ def echo_best_students(array: list) -> None:
         if has_excellent_grades(i):
             echo_students([i])
 
-            flag = False  # I will say that I have found the best student.
+            flag = False  # I will say that I have found the best
+            # student.
 
     if flag:
         print("there are no such students")
